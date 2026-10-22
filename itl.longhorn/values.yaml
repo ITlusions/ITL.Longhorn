@@ -1,0 +1,8 @@
+# No dedicated disk per node (single-disk hardware - see docs/1-cluster/1.1-architecture.md
+# in ITlusions/ITL.K8s), so this uses the classic /var/lib/longhorn data path
+# within the existing EPHEMERAL partition, rather than a separate
+# UserVolumeConfig-provisioned disk (the Talos v1.10+-recommended approach,
+# which needs a disk to dedicate). Revisit if nodes ever get a second disk.
+longhorn:
+  defaultSettings:
+    defaultDataPath: /var/lib/longhorn
